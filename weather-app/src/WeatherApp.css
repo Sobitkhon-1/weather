@@ -215,7 +215,6 @@ body, html, #root {
 
 
 
-
 /* General reset */
 body, html, #root {
   margin: 0;
@@ -229,10 +228,16 @@ body, html, #root {
 .app {
   min-height: 100vh;
   width: 100vw;
-  padding: 2rem;
+  padding: 1rem;
   box-sizing: border-box;
   font-family: "Segoe UI", sans-serif;
   transition: background 0.5s ease, color 0.5s ease;
+}
+
+@media (min-width: 768px) {
+  .app {
+    padding: 2rem;
+  }
 }
 
 /* light vs dark */
@@ -252,9 +257,16 @@ body, html, #root {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
   animation: fadeInDown 1s ease;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .logo {
@@ -266,15 +278,17 @@ body, html, #root {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   animation: fadeInUp 1s ease;
+  flex-wrap: wrap;
 }
 
 .search-box input {
   padding: 10px 15px;
   border-radius: 20px;
   border: none;
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
   font-size: 1rem;
   outline: none;
 }
@@ -288,6 +302,18 @@ body, html, #root {
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .search-box {
+    margin-bottom: 2rem;
+    flex-wrap: nowrap;
+  }
+  
+  .search-box input {
+    width: 250px;
+  }
 }
 
 .search-box button:hover {
@@ -303,10 +329,18 @@ body, html, #root {
   text-align: center;
   margin: 1rem auto;
   max-width: 400px;
+  width: 100%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease forwards;
+}
+
+@media (max-width: 767px) {
+  .weather-card {
+    padding: 1rem;
+    max-width: 100%;
+  }
 }
 
 .app.light .weather-card {
@@ -324,11 +358,23 @@ body, html, #root {
 .forecast {
   margin-top: 2rem;
   text-align: center;
+  padding: 0 0.5rem;
 }
 
 .forecast h3 {
   margin-bottom: 1rem;
   animation: fadeIn 1s ease;
+  font-size: 1.3rem;
+}
+
+@media (min-width: 768px) {
+  .forecast {
+    padding: 0;
+  }
+  
+  .forecast h3 {
+    font-size: 1.5rem;
+  }
 }
 
 .forecast-grid {
@@ -342,12 +388,19 @@ body, html, #root {
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   border-radius: 15px;
-  padding: 1rem;
-  min-width: 120px;
+  padding: 0.8rem;
+  min-width: 90px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   opacity: 0;
   transform: scale(0.9);
   animation: fadeInScale 0.6s ease forwards;
+}
+
+@media (min-width: 768px) {
+  .forecast-card {
+    padding: 1rem;
+    min-width: 120px;
+  }
 }
 
 .app.light .forecast-card {
@@ -362,8 +415,14 @@ body, html, #root {
 .forecast-card:nth-child(5) { animation-delay: 1s; }
 
 .forecast-icon {
-  width: 60px;
+  width: 50px;
   margin: 5px auto;
+}
+
+@media (min-width: 768px) {
+  .forecast-icon {
+    width: 60px;
+  }
 }
 
 .desc {
